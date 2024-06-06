@@ -1,0 +1,302 @@
+/*-----------------  GOOGLE FONTS  -----------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap');
+
+/*-----------------  VARIABLES  -----------------*/
+:root {
+    /* Colors */ 
+    --orange-color: rgb(246, 99, 53);
+    --dark-color: rgb(27, 31, 41);
+    --border: rgba(255, 255, 255, 0.25);
+    --background: rgba(255, 255, 255, 0.1);
+    --box_shadow: rgba(3, 46, 87, 0.3);
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgba(19, 148, 187, 0.634);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: var(--dark-color);
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: textSlideIn 1s forwards;
+    animation-delay: 1s;
+}
+
+.container {
+    width: 90%;
+    max-width: 50rem;
+    background: var(--background);
+    backdrop-filter: blur(0.5rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    box-shadow: 0 1.8rem 3.7rem var(--box_shadow);
+    padding: 2rem;
+    margin: auto; /* Center container vertically and horizontally */
+}
+
+.search_box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 3rem;
+    padding: 1rem;
+    backdrop-filter: blur(0.4rem) saturate(180%);
+    box-shadow: 0 1.8rem 3.7rem var(--box_shadow);
+    margin-top: 2rem;
+    position: relative; /* Make the positioning of the icon relative to this container */
+} 
+
+.search_box input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 1rem 1rem 1rem 3rem; /* Add left padding to avoid overlap with the icon */
+    font-size: 1.6rem;
+    color: var(--dark-color);
+}
+
+.search_box input::placeholder {
+    color: var(--dark-color);
+}
+
+.search_box button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: absolute; /* Position the button absolutely within the .search_box */
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.search_box .icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--orange-color);
+}
+
+.error {
+    margin: 4rem 0 5rem 0;
+    color: var(--dark-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+#show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#show h2 {
+    color: var(--dark-color);
+    text-transform: uppercase;
+    letter-spacing: 0.18rem;
+    font-weight: 600;
+    font-size: 2.6rem;
+    margin: 3rem 0 2rem 0;
+}
+
+.weather, .desc {
+    color: var(--dark-color);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.weather {
+    margin: 1rem 0;
+}
+
+#show img {
+    margin: 2rem 0 0 0;
+    width: 10rem;
+    filter: drop-shadow(0 1.8rem 3.7rem var(--shadow));
+}
+
+#show h1 {
+    font-size: 6rem;
+    margin: 2rem 0 2rem 0;
+    line-height: 0;
+    font-weight: 400;
+    color: var(--dark-color);
+}
+
+.temp_container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 5rem 0;
+    text-align: center;
+}
+
+.temp_container div {
+    padding: 1rem 1.5rem;
+}
+
+.temp_container div:first-child {
+    border-right: 0.1rem solid var(--border);
+}
+
+.temp_container .title {
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 1.6rem;
+}
+
+.temp_container .temp {
+    font-weight: 600;
+    color: var(--orange-color);
+    font-size: 1.6rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background: var(--second-bg-color);
+    text-align: center;
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media (min-width: 480px) {
+    .container {
+        width: 80%;
+    }
+
+    .search_box {
+        width: 80%;
+    }
+
+    #show h2 {
+        font-size: 2.8rem;
+    }
+
+    .weather, .desc {
+        font-size: 1.6rem;
+    }
+
+    #show h1 {
+        font-size: 6.5rem;
+    }
+
+    .temp_container .title, .temp_container .temp {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 70%;
+    }
+
+    .search_box {
+        width: 70%;
+    }
+
+    #show h2 {
+        font-size: 3rem;
+    }
+
+    .weather, .desc {
+        font-size: 1.8rem;
+    }
+
+    #show h1 {
+        font-size: 7rem;
+    }
+
+    .temp_container .title, .temp_container .temp {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 50%;
+    }
+
+    .search_box {
+        width: 60%;
+    }
+
+    #show h2 {
+        font-size: 3.6rem;
+    }
+
+    .weather, .desc {
+        font-size: 2rem;
+    }
+
+    #show h1 {
+        font-size: 8rem;
+    }
+
+    .temp_container .title, .temp_container .temp {
+        font-size: 2.4rem;
+    }
+}
